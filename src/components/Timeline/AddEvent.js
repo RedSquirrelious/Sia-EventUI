@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import RaisedButtonStyled from '../../components/elements/RaisedButtonStyled'
 import * as formActions from '../../actions/formActions'
 import * as eventActions from '../../actions/eventActions'
+import AutoCompleteMenu from '../elements/AutoCompleteMenu'
 
 export const addEventFormName = 'AddEvents'
 export const eventInputKey = 'eventInput'
@@ -55,12 +56,16 @@ const EventTypeIdInput = (eventTypeIdInput, updateEventTypeIdInput) => <label>
   />
 </label>
 
+
+
 export const mapStateToPropsAddEvent = (state, ownProps) => {
   const form = (state && state.forms && state.forms[addEventFormName])
     ? state.forms[addEventFormName]
     : {}
+
   return {
     ...ownProps,
+    eventTypes: state.eventTypes.records,
     eventInput: form[eventInputKey],
     eventTypeIdInput: form[eventTypeIdInputKey]
   }

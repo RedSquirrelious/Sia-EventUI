@@ -45,7 +45,8 @@ export const getEventFetchArgs = (incidentId, eventId) => {
     return [getEventsEndPoint(incidentId) + eventId]
 }
 
-export const postEventFetchArgs = (incidentId, eventTypeId, data, occurrenceTime) => ([
+export const postEventFetchArgs = (incidentId, eventTypeId, data, occurrenceTime) => { 
+    return ([
     getEventsEndPoint(incidentId),
     {
         eventTypeId,
@@ -53,7 +54,7 @@ export const postEventFetchArgs = (incidentId, eventTypeId, data, occurrenceTime
         eventFired: occurrenceTime,
         data
     }
-])
+])}
 
 export const getEventActionSet = (incidentId, eventId) => ({
     try: () => ({

@@ -34,7 +34,9 @@ class Timeline extends Component {
     const { events, dispatch, ticketId, incidentId, eventTypes, history } = this.props
     return (
       <div>
-        {AddEventCard(incidentId)}
+        <AddEventCard
+          incidentId={incidentId}
+        />
         <EventFilter history={history} eventTypes={eventTypes}/>
         <Events events={events.pageList} ticketId={ticketId} incidentId={incidentId} />
         <Footer pagination={events} dispatch={dispatch}/>
