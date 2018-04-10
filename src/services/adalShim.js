@@ -25,6 +25,7 @@ let shimStatement
 if (typeof (window) !== 'undefined') {
   shimStatement = ''
 } else {
+  console.log('adalShim:  if this happens outside of test, something is wrong')
   shimStatement = 'var window = {location:{href:"http://localhost"}}; var chrome = {}'
 }
 

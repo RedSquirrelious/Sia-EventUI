@@ -27,7 +27,10 @@ export const resetSignalRConnection = (dispatch) => {
 const signalReduxConnection = (dispatch) => configureConnection(dispatch)
   .then(connection => startConnection(connection, dispatch))
 
-const configureConnection = (dispatch) => getToken(defaultScopes)
+const configureConnection = (dispatch) => {
+  console.log('signalRService:  defaultScopes ', defaultScopes)
+  console.log('signalRService:  typeof getToken ', typeof(getToken))
+  return getToken(defaultScopes)
   .then(token => {
     const hubAndHttpOptions = {
       accessTokenFactory: () => token,
@@ -46,6 +49,7 @@ const configureConnection = (dispatch) => getToken(defaultScopes)
 
     return connection
   })
+}
 
 const startConnection = (connection, dispatch) => {
   dispatch(signalRActions.tryEstablishConnection())

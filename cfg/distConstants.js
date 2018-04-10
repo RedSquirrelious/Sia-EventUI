@@ -8,7 +8,8 @@ let distConstants = Object.assign({}, baseConstants, {
   clientId: argv.clientId,
   baseUrl: argv.baseUrl,
   authRedirectUri: argv.authRedirectUri,
-  authVersion: argv.authVersion
+  authVersion: argv.authVersion,
+  retries: 4
 })
 
 module.exports = distConstants
