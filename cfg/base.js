@@ -6,7 +6,7 @@ const env = process.env.REACT_WEBPACK_ENV
 
 let constants
 try {
-  constants = require(`./${env}.const`)
+  constants = env === 'dist' ? require('./distConstants') : require(`./${env}.const`)
 } catch (ex) {
   if (ex.code && ex.code === 'MODULE_NOT_FOUND') {
     console.log(`${env}.const not found. Falling back to defaultConstants.`)
