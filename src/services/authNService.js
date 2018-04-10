@@ -78,12 +78,14 @@ export const getUserAlias = (user) => {
 }
 
 export const getToken = (scopes) => {
+  console.log('authNService:  authVersion ', authVersion)
   switch (authVersion) {
     case testAuthVersion:
       return testToken
     case msalService.authVersion:
       return msalService.getToken(scopes)
     default:
+      console.log('authNService:  typeof adal getToken ', typeof(adalService.getToken))
       return adalService.getToken()
   }
 }
