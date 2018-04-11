@@ -7,7 +7,6 @@
   "scripts": {
     "clean": "rimraf dist/*",
     "dist": "npm run clean && cross-env NODE_ENV=dist webpack --env=dist --progress --profile --colors --display-error-details --display-reasons --debug",
-    "dist2": "cross-env NODE_ENV=dist webpack --env=dist --progress --profile --colors --display-error-details --display-reasons --debug",
     "lint": "standard \"src/**/*.js\"",
     "lint:fix": "standard --fix \"src/**/*.js\"",
     "posttest": "npm run lint",
