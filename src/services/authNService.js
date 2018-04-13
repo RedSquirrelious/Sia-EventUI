@@ -85,7 +85,7 @@ export const getToken = (scopes) => {
     case msalService.authVersion:
       return msalService.getToken(scopes)
     default:
-      console.log('authNService:  typeof adal getToken ', typeof(adalService.getToken))
+      console.log('authNService:  typeof adal getToken ', typeof (adalService.getToken))
       return adalService.getToken()
   }
 }
