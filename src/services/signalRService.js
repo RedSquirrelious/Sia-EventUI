@@ -29,7 +29,7 @@ const signalReduxConnection = (dispatch) => configureConnection(dispatch)
 
 const configureConnection = (dispatch) => {
   console.log('signalRService:  defaultScopes ', defaultScopes)
-  console.log('signalRService:  typeof getToken ', typeof(getToken))
+  console.log('signalRService:  typeof getToken ', typeof (getToken))
   return getToken(defaultScopes)
   .then(token => {
     const hubAndHttpOptions = {
