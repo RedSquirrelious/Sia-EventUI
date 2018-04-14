@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import FlatButtonStyled from 'components/elements/FlatButtonStyled'
 import { fillTemplate, publishEvent } from 'services/playbookService'
-import appInsights from '../../../appInsights'
+import appInsights from 'appInsights'
 
 var trackLinkClick = (name) => {
   appInsights.trackEvent(name + ' Clicked')

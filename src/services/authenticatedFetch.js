@@ -2,7 +2,7 @@ import { rawHttpResponse, jsonResult } from 'actions/debugActions'
 import PromiseRetry from 'promise-retry'
 import { getToken } from 'services/authNService'
 import config from 'config'
-import appInsights from '../appInsights'
+import appInsights from 'appInsights'
 
 export const clientId = config.clientId
 
