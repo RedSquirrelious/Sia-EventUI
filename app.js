@@ -6,7 +6,7 @@ if (process.env.NODE_ENV !== 'dist') {
   const webpackDevMiddleware = require('webpack-dev-middleware')
   const webpackHotMiddleware = require('webpack-hot-middleware')
   const webpack = require('webpack')
-  const webpackConfig = require('./webpack.config')
+  const webpackConfig = require(path.resolve(__dirname, 'webpack.config'))
   const compiler = webpack(webpackConfig)
   app.use(webpackDevMiddleware(compiler, {
     hot: true,

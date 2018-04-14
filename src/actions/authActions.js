@@ -1,4 +1,4 @@
-import appInsights from '../appInsights'
+import appInsights from 'appInsights'
 
 export const LOGIN_IN_PROGRESS = 'LOGIN_IN_PROGRESS'
 export const USER_LOGGED_IN = 'USER_LOGGED_IN'
