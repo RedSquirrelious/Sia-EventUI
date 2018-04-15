@@ -10,12 +10,13 @@ const allowedEnvs = ['dev', 'dist', 'test', 'localhost']
 let env
 if (args._.length > 0 && args._.indexOf('start') !== -1) {
   env = 'test'
-} else if (args.env) {
-  env = args.env
+} else if (args.env.env) {
+  env = args.env.env
 } else {
   env = 'dev'
 }
 process.env.REACT_WEBPACK_ENV = env
+process.env.REACT_WEBPACK_ROOT = args.env.root
 
 /**
  * Build the webpack configuration
