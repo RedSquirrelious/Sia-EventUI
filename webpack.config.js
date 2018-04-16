@@ -2,7 +2,7 @@
 
 const path = require('path')
 const args = require('minimist')(process.argv.slice(2))
-
+console.log('Arguments ==> ', args)
 // List of allowed environments
 const allowedEnvs = ['dev', 'dist', 'test', 'localhost']
 
@@ -10,8 +10,8 @@ const allowedEnvs = ['dev', 'dist', 'test', 'localhost']
 let env
 if (args._.length > 0 && args._.indexOf('start') !== -1) {
   env = 'test'
-} else if (args.env.env) {
-  env = args.env.env
+} else if (args.env) {
+  env = args.env
 } else {
   env = 'dev'
 }
