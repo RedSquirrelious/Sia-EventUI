@@ -16,7 +16,7 @@ try {
   }
 }
 
-const siaRoot = process.env.REACT_WEBPACK_ROOT
+const siaRoot = path.join(__dirname, '..')
 const publicPath = '/assets/'
 
 const config = {
