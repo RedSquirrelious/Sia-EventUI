@@ -4,7 +4,7 @@ if (typeof constants !== 'undefined') {
   // eslint-disable-next-line no-undef
   config = constants
 } else {
-  const defaultConstants = require(process.env.REACT_WEBPACK_DEFAULT_CONSTANTS)
+  const defaultConstants = require('../../cfg/defaultConstants')
   config = defaultConstants.default || defaultConstants
 }
 
