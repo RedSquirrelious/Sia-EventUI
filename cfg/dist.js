@@ -17,28 +17,30 @@ const config = Object.assign({}, baseConfig, {
       path.resolve(siaRoot, 'node_modules')
     ],
     alias: {
-      src: path.resolve(path.join(siaRoot, 'src')),
-      actions: path.resolve(path.join(siaRoot, 'src', 'actions')),
-      components: path.resolve(path.join(siaRoot, 'src', 'components')),
-      config: path.resolve(path.join(siaRoot, 'src', 'config')),
-      containers: path.resolve(path.join(siaRoot, 'src', 'containers')),
-      extensionHooks: path.resolve(path.join(siaRoot, 'src', 'extensionHooks')),
-      helpers: path.resolve(path.join(siaRoot, 'src', 'helpers')),
-      reducers: path.resolve(path.join(siaRoot, 'src', 'reducers')),
-      services: path.resolve(path.join(siaRoot, 'src', 'services')),
-      static: path.resolve(path.join(siaRoot, 'src', 'static')),
-      styles: path.resolve(path.join(siaRoot, 'src', 'styles')),
-      configureStore: path.resolve(path.join(siaRoot, 'src', 'configureStore'))
+      cfg: path.resolve(siaRoot, 'cfg'),
+      src: path.resolve(siaRoot, 'src'),
+      actions: path.resolve(siaRoot, 'src', 'actions'),
+      components: path.resolve(siaRoot, 'src', 'components'),
+      config: path.resolve(siaRoot, 'src', 'config'),
+      containers: path.resolve('src', 'containers'),
+      extensionHooks: path.resolve('src', 'extensionHooks'),
+      helpers: path.resolve(siaRoot, 'src', 'helpers'),
+      reducers: path.resolve(siaRoot, 'src', 'reducers'),
+      services: path.resolve(siaRoot, 'src', 'services'),
+      static: path.resolve(siaRoot, 'src', 'static'),
+      styles: path.resolve(siaRoot, 'src', 'styles'),
+      configureStore: path.resolve(siaRoot, 'src', 'configureStore'),
+      appInsights: path.resolve(siaRoot, 'src', 'appInsights.js')
     }
   },
   resolveLoader: {
     modules: [
-      path.resolve(path.join(siaRoot, 'node_modules'))
+      path.resolve(siaRoot, 'node_modules')
     ]
   }
 })
 
-config.entry.app.push(path.join(siaRoot, 'src', 'index'))
+config.entry.app.push(path.resolve(siaRoot, 'src', 'index'))
 
 config.plugins.push(...[
   new webpack.optimize.AggressiveMergingPlugin()
