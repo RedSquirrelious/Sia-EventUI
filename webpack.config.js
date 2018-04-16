@@ -22,9 +22,20 @@ if (args._.length > 0 && args._.indexOf('start') !== -1) {
 } else if (args.env.root) {
   root = args.env.root
 } else {
-  env = __dirname
+  root = __dirname
 }
 process.env.REACT_WEBPACK_ROOT = root
+
+
+let defaultConstantsPath
+if (args._.length > 0 && args._.indexOf('start') !== -1) {
+  defaultConstantsPath = 'cfg/defaultConstants'
+} else if (args.env.defaultConstants) {
+  defaultConstantsPath = args.env.defaultConstants
+} else {
+  defaultConstantsPath = 'cfg/defaultConstants'
+}
+process.env.REACT_WEBPACK_DEFAULT_CONSTANTS = defaultConstantsPath
 
 /**
  * Build the webpack configuration
