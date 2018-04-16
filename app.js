@@ -29,7 +29,7 @@ if (process.env.NODE_ENV !== 'dist') {
     res.sendFile(path.join(__dirname, '/src/index.html'))
   })
 } else {
-  const DIST_DIR = path.join(__dirname, 'dist')
+  const DIST_DIR = path.join(process.env.REACT_WEBPACK_ROOT, 'dist')
   const HTML_FILE = path.join(DIST_DIR, 'index.html')
 
   app.use(express.static(DIST_DIR))

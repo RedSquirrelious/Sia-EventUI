@@ -16,31 +16,33 @@ const config = Object.assign({}, baseConfig, {
   },
   resolve: {
     modules: [
-      path.resolve(__dirname, '..', 'node_modules')
+      path.resolve(siaRoot, 'node_modules')
     ],
     alias: {
-      src: path.resolve(__dirname, '..', 'src'),
-      actions: path.resolve(__dirname, '..', 'src', 'actions'),
-      components: path.resolve(__dirname, '..', 'src', 'components'),
-      config: path.resolve(__dirname, '..', 'src', 'config'),
-      containers: path.resolve(__dirname, '..', 'src', 'containers'),
-      extensionHooks: path.resolve(__dirname, '..', 'src', 'extensionHooks'),
-      helpers: path.resolve(__dirname, '..', 'src', 'helpers'),
-      reducers: path.resolve(__dirname, '..', 'src', 'reducers'),
-      services: path.resolve(__dirname, '..', 'src', 'services'),
-      static: path.resolve(__dirname, '..', 'src', 'static'),
-      styles: path.resolve(__dirname, '..', 'src', 'styles'),
-      configureStore: path.resolve(__dirname, '..', 'src', 'configureStore')
+      cfg: path.resolve(siaRoot, 'cfg'),
+      src: path.resolve(siaRoot, 'src'),
+      actions: path.resolve(siaRoot, 'src', 'actions'),
+      components: path.resolve(siaRoot, 'src', 'components'),
+      config: path.resolve(siaRoot, 'src', 'config'),
+      containers: path.resolve('src', 'containers'),
+      extensionHooks: path.resolve('src', 'extensionHooks'),
+      helpers: path.resolve(siaRoot, 'src', 'helpers'),
+      reducers: path.resolve(siaRoot, 'src', 'reducers'),
+      services: path.resolve(siaRoot, 'src', 'services'),
+      static: path.resolve(siaRoot, 'src', 'static'),
+      styles: path.resolve(siaRoot, 'src', 'styles'),
+      configureStore: path.resolve(siaRoot, 'src', 'configureStore'),
+      appInsights: path.resolve(siaRoot, 'src', 'appInsights.js')
     }
   },
   resolveLoader: {
     modules: [
-      path.resolve(__dirname, '..', 'node_modules')
+      path.resolve(siaRoot, 'node_modules')
     ]
   }
 })
 
-config.entry.app.push(__dirname, '..', 'src', 'index')
+config.entry.app.push(path.resolve(siaRoot, 'src', 'index'))
 
 config.plugins.push(...[
   new UglifyJSPlugin({ sourceMap: true }),

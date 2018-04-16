@@ -1,12 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import path from 'path'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 import { AppContainer as HotContainer } from 'react-hot-loader'
 
 import { store, persistor } from 'configureStore'
 import MainComponent from 'components/MainComponent'
 
-require('./styles/App.css')
+require('styles/App.css')
+
+const mainComponentPath = path.join('components', 'MainComponent')
 
 injectTapEventPlugin()
 
@@ -22,11 +25,11 @@ render(MainComponent, store, persistor)
 
 // Webpack Hot Module Replacement API
 if (module.hot) {
-  module.hot.accept('./components/MainComponent', () => {
+  module.hot.accept(mainComponentPath, () => {
     render(MainComponent, store, persistor)
   })
   // Enable Webpack hot module replacement for reducers
-  module.hot.accept('./reducers', () => {
-    store.replaceReducer(require('./reducers').default)
+  module.hot.accept('reducers', () => {
+    store.replaceReducer(require('reducers').default)
   })
 }

@@ -16,7 +16,15 @@ if (args._.length > 0 && args._.indexOf('start') !== -1) {
   env = 'dev'
 }
 process.env.REACT_WEBPACK_ENV = env
-process.env.REACT_WEBPACK_ROOT = args.env.root
+let root
+if (args._.length > 0 && args._.indexOf('start') !== -1) {
+  root = __dirname
+} else if (args.env.root) {
+  root = args.env.root
+} else {
+  env = __dirname
+}
+process.env.REACT_WEBPACK_ROOT = root
 
 /**
  * Build the webpack configuration
