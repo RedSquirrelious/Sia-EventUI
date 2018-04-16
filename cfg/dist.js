@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
 const baseConfig = require('./base')
+const siaRoot = path.resolve(__dirname, '..')
 
 const config = Object.assign({}, baseConfig, {
   cache: false,
