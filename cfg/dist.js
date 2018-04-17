@@ -3,17 +3,11 @@ const webpack = require('webpack')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
 const baseConfig = require('./base')
-const publicPath = '/assets/'
-const siaRoot = process.env.REACT_WEBPACK_ROOT
+const siaRoot = path.resolve(__dirname, '..')
 
 const config = Object.assign({}, baseConfig, {
   cache: false,
   devtool: 'sourcemap',
-  output: {
-    path: path.resolve(siaRoot, 'dist', 'assets'),
-    filename: '[name].js',
-    publicPath: publicPath
-  },
   resolve: {
     modules: [
       path.resolve(siaRoot, 'node_modules')
