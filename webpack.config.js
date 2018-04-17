@@ -17,11 +17,14 @@ if (args._.length > 0 && args._.indexOf('start') !== -1) {
 }
 process.env.REACT_WEBPACK_ENV = env
 console.log('process.env.REACT_WEBPACK_ENV ==> ', env)
-
+console.log('now can we set process.env.NODE_ENV?')
 if (env === 'dist') {
   process.env.NODE_ENV = 'dist'
+  console.log('yes we can.  it is ==> ', process.env.NODE_ENV)
 }
-
+else {
+  console.log('no, perhaps not.  sadness.')
+}
 console.log('here in webpack.config, process.env.NODE_ENV should be dist ==>', process.env.NODE_ENV)
 
 /**
