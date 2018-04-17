@@ -9,6 +9,8 @@ import { getFilterFromUrl } from 'services/filterService'
 import { configureNotificationService } from 'services/notificationService'
 import { filterTypes } from 'actions/signalRActions'
 
+console.log('hello from configureStore.js')
+
 const defaultSignalREventFilterPreference = filterTypes.sync.value
 
 const urlFilter = getFilterFromUrl(window.location.search)
