@@ -19,7 +19,7 @@ try {
 
 const siaRoot = path.join(__dirname, '..')
 const publicPath = '/assets/'
-
+console.log('base.js siaRoot ==> ', siaRoot)
 const config = {
   entry: {
     app: ['babel-polyfill'],
