@@ -18,7 +18,7 @@ try {
 }
 
 const siaRoot = path.join(__dirname, '..')
-const publicPath = '/assets/'
+const publicPath = 'assets/'
 console.log('base.js siaRoot ==> ', siaRoot)
 const config = {
   mode: 'development',
