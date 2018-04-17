@@ -51,4 +51,6 @@ config.plugins.push(...[
 ])
 
 console.log('dist.js config ==> ', config)
+console.log('dist.js config.entry ==> ', config.entry)
+console.log('dist.js config.output ==> ', config.output)
 module.exports = config
