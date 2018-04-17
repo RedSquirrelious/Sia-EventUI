@@ -6,6 +6,8 @@ const baseConfig = require('./base')
 const siaRoot = path.resolve(__dirname, '..')
 console.log('hello from dist.js')
 
+console.log('dist.js siaRoot ==> ', siaRoot)
+console.log('dist.js baseConfig ==> ', baseConfig)
 const config = Object.assign({}, baseConfig, {
   mode: 'production',
   cache: false,
@@ -41,10 +43,12 @@ const config = Object.assign({}, baseConfig, {
   }
 })
 
+console.log('in dist.js, config.entry.app ==> ', config.entry.app)
 config.entry.app.push(path.resolve(siaRoot, 'src', 'index'))
-
+console.log('in dist.js, config.entry.app, now with src/index ==> ', config.entry.app)
 config.plugins.push(...[
   new webpack.optimize.AggressiveMergingPlugin()
 ])
 
+console.log('dist.js config ==> ', config)
 module.exports = config
