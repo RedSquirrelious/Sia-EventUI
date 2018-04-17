@@ -5,6 +5,7 @@
  */
 
 var app = require('./app')
+console.log(app)
 var debug = require('debug')('nodejs-get-started:server')
 var http = require('http')
 

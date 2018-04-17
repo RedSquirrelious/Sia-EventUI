@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const env = process.env.REACT_WEBPACK_ENV
+console.log('hello from base.js')
 
 let constants
 try {

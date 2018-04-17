@@ -17,9 +17,12 @@ if (args._.length > 0 && args._.indexOf('start') !== -1) {
 }
 process.env.REACT_WEBPACK_ENV = env
 console.log('process.env.REACT_WEBPACK_ENV ==> ', env)
+
 if (env === 'dist') {
   process.env.NODE_ENV = 'dist'
 }
+
+console.log('here in webpack.config, process.env.NODE_ENV should be dist ==>', process.env.NODE_ENV)
 
 /**
  * Build the webpack configuration
