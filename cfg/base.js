@@ -17,10 +17,13 @@ try {
   }
 }
 
-const siaRoot = path.join(__dirname, '..')
-const publicPath = 'assets/'
+const siaRoot = path.resolve(__dirname, '..')
+
+const publicPath = '/assets/'
 console.log('base.js siaRoot ==> ', siaRoot)
+
 const config = {
+  context: siaRoot,
   mode: 'development',
   entry: {
     app: ['babel-polyfill'],
@@ -28,7 +31,7 @@ const config = {
   },
   devtool: 'eval',
   output: {
-    path: path.join(siaRoot, 'dist/assets'),
+    path: path.resolve(siaRoot, 'dist/assets'),
     filename: '[name].js',
     publicPath: publicPath
   },
