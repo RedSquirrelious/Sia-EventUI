@@ -21,7 +21,7 @@ if (process.env.NODE_ENV !== 'dist') {
     historyApiFallback: true
   }))
 
-  app.use('/favicon.ico', express.static(path.join(__dirname, 'src/static/favicon.ico')))
+  app.use('/favicon.ico', express.static(path.resolve(__dirname, 'src/static/favicon.ico')))
 
   app.use(webpackHotMiddleware(compiler, {
     log: console.log,
@@ -29,11 +29,11 @@ if (process.env.NODE_ENV !== 'dist') {
     heartbeat: 10 * 1000
   }))
   app.get('*', function (req, res) {
-    res.sendFile(path.join(__dirname, '/src/index.html'))
+    res.sendFile(path.resolve(__dirname, '/src/index.html'))
   })
 } else {
-  const DIST_DIR = path.join(__dirname, 'dist')
-  const HTML_FILE = path.join(DIST_DIR, 'index.html')
+  const DIST_DIR = path.resolve(__dirname, 'dist')
+  const HTML_FILE = path.resolve(DIST_DIR, 'index.html')
 
   app.use(express.static(DIST_DIR))
   app.get('*', function (req, res) {
