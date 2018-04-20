@@ -7,7 +7,7 @@ console.log('hello from base.js')
 
 let constants
 try {
-  constants = require(path.join(__dirname, `${env}.const`))
+  constants = require(path.resolve(__dirname, `${env}.const`))
 } catch (ex) {
   if (ex.code && ex.code === 'MODULE_NOT_FOUND') {
     console.log(`${env}.const not found. Falling back to defaultConstants.`)
@@ -17,22 +17,25 @@ try {
   }
 }
 
-const siaRoot = path.join(__dirname, '..')
+const siaRoot = path.resolve(__dirname, '..')
+
 const publicPath = '/assets/'
 console.log('base.js siaRoot ==> ', siaRoot)
 const config = {
+  context: siaRoot,
+  mode: 'development',
   entry: {
     app: ['babel-polyfill'],
-    appInsights: path.join(siaRoot, 'src/appInsights')
+    appInsights: path.resolve(siaRoot, 'src', 'appInsights')
   },
   devtool: 'eval',
   output: {
-    path: path.join(siaRoot, 'dist/assets'),
+    path: path.resolve(siaRoot, 'dist', 'assets'),
     filename: '[name].js',
     publicPath: publicPath
   },
   devServer: {
-    contentBase: path.join(siaRoot, 'src'),
+    contentBase: path.resolve(siaRoot, 'src'),
     historyApiFallback: true,
     hot: true,
     publicPath: publicPath,
@@ -78,6 +81,9 @@ const config = {
       }
     ]
   },
+  optimization: {
+    noEmitOnErrors: true
+  },
   plugins: [
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': `"${env}"`,
@@ -85,11 +91,11 @@ const config = {
     }),
     new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /de/),
     new CopyWebpackPlugin([
-      { from: path.join(siaRoot, 'src/extensionHooks/manifest.json'), to: path.join(siaRoot, 'dist') },
-      { from: path.join(siaRoot, 'src/static'), to: path.join(siaRoot, 'dist/static') },
-      { from: path.join(siaRoot, 'src/static/favicon.ico'), to: path.join(siaRoot, 'dist') },
-      { from: path.join(siaRoot, 'src/extensionHooks/extension.html'), to: path.join(siaRoot, 'dist') },
-      { from: path.join(siaRoot, 'src/index.html'), to: path.join(siaRoot, 'dist') }
+      { from: path.resolve(siaRoot, 'src/extensionHooks/manifest.json'), to: path.resolve(siaRoot, 'dist') },
+      { from: path.resolve(siaRoot, 'src/static'), to: path.resolve(siaRoot, 'dist/static') },
+      { from: path.resolve(siaRoot, 'src/static/favicon.ico'), to: path.resolve(siaRoot, 'dist') },
+      { from: path.resolve(siaRoot, 'src/extensionHooks/extension.html'), to: path.resolve(siaRoot, 'dist') },
+      { from: path.resolve(siaRoot, 'src/index.html'), to: path.resolve(siaRoot, 'dist') }
     ],
     { copyUnmodified: true })
   ]

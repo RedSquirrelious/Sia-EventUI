@@ -21,6 +21,40 @@
     "test:watch": "mocha --watch",
     "test:coverage": "cross-env NODE_ENV=coverage nyc mocha"
   },
+  "babel": {
+    "presets": [
+      [
+        "env"
+      ],
+      "react"
+    ],
+    "env": {
+      "coverage": {
+        "plugins": [
+          "istanbul"
+        ]
+      }
+    },
+    "plugins": [
+      "transform-object-rest-spread",
+      "syntax-class-properties",
+      "transform-class-properties",
+      "transform-async-to-generator",
+      "react-hot-loader/babel",
+      [
+        "module-resolver",
+        {
+          "root": [
+            "./src"
+          ],
+          "alias": {
+            "cfg": "./cfg",
+            "test": "./test"
+          }
+        }
+      ]
+    ]
+  },
   "nyc": {
     "reporter": [
       "text",
@@ -100,10 +134,12 @@
     "style-loader": "^0.19.1",
     "uglifyjs-webpack-plugin": "1.2.3",
     "url-loader": "^0.6.2",
-    "webpack": "^3.10.0",
-    "webpack-dev-middleware": "^2.0.2",
-    "webpack-hot-middleware": "^2.21.0",
-    "webpack-node-externals": "^1.6.0",
+    "webpack": "^4.6.0",
+    "webpack-bundle-analyzer": "^2.11.1",
+    "webpack-cli": "^2.0.14",
+    "webpack-dev-middleware": "^3.1.2",
+    "webpack-hot-middleware": "^2.21.2",
+    "webpack-node-externals": "^1.7.2",
     "webpack-shell-plugin": "^0.5.0"
   },
   "dependencies": {

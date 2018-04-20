@@ -2,22 +2,32 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import MenuItem from 'material-ui/MenuItem'
-import ActionDelete from 'material-ui/svg-icons/action/delete'
 
-export const MenuLink = (type, id, onClick, dispatch) => {
-  var typeRoute = `/${type}s/${id}`
+const styles = {
+  constrainedWidth: {
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    width: '25rem'
+  }
+}
+
+export const MenuLink = ({primaryText, route, onClick, rightIcon}) => {
   return (
     <MenuItem
-      key={`${type}-${id}`}
-      primaryText={<Link to={typeRoute}>{`${type} ${id}`}</Link>}
-      rightIcon={<ActionDelete onClick={() => dispatch(onClick(id))} />}
+      key={primaryText + route}
+      containerElement={<Link to={route} />}
+      primaryText={<div style={styles.constrainedWidth}>{primaryText}</div>}
+      onClick={onClick}
+      rightIcon={rightIcon}
+      title={primaryText}
     />
   )
 }
 
 MenuLink.propTypes = {
-  type: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired
+  primaryText: PropTypes.string.isRequired,
+  route: PropTypes.string.isRequired,
+  rightIcon: PropTypes.object
 }
 
 export default MenuLink
