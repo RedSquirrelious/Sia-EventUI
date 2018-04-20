@@ -9,11 +9,11 @@ console.log('hello from dist.js')
 const config = Object.assign({}, baseConfig, {
   mode: 'production',
   cache: false,
-  devtool: 'sourcemap'
-  // resolve: {
-  //   modules: [
-  //     path.resolve(siaRoot, 'node_modules')
-  //   ],
+  devtool: 'sourcemap',
+  resolve: {
+    modules: [
+      path.resolve(siaRoot, 'node_modules')
+    ]
   //   alias: {
   //     cfg: path.resolve(siaRoot, 'cfg'),
   //     src: path.resolve(siaRoot, 'src'),
@@ -30,12 +30,12 @@ const config = Object.assign({}, baseConfig, {
   //     configureStore: path.resolve(siaRoot, 'src', 'configureStore'),
   //     appInsights: path.resolve(siaRoot, 'src', 'appInsights.js')
   //   }
-  // },
-  // resolveLoader: {
-  //   modules: [
-  //     path.resolve(siaRoot, 'node_modules')
-  //   ]
-  // }
+  },
+  resolveLoader: {
+    modules: [
+      path.resolve(siaRoot, 'node_modules')
+    ]
+  }
 })
 
 config.entry.app.push(path.resolve(siaRoot, 'src', 'index'))
