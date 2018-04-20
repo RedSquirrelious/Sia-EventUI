@@ -9,10 +9,7 @@ console.log('hello from dist.js')
 const config = Object.assign({}, baseConfig, {
   mode: 'production',
   cache: false,
-  devtool: 'sourcemap',
-  optimization: {
-    minimizer: [new UglifyJSPlugin({ sourceMap: true })]
-  }
+  devtool: 'sourcemap'
   // resolve: {
   //   modules: [
   //     path.resolve(siaRoot, 'node_modules')
