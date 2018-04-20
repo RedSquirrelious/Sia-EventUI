@@ -12,6 +12,11 @@ const config = Object.assign({}, baseConfig, {
   devtool: 'sourcemap',
   resolve: {
     modules: [
+      siaRoot,
+      path.resolve(siaRoot, 'src'),
+      path.resolve(siaRoot, 'cfg'),
+      path.resolve(siaRoot, 'dist'),
+      path.resolve(siaRoot, 'test'),
       path.resolve(siaRoot, 'node_modules')
     ]
   //   alias: {
