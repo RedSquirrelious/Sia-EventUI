@@ -2,7 +2,6 @@
 
 const path = require('path')
 const args = require('minimist')(process.argv.slice(2))
-console.log('Arguments ==> ', args)
 // List of allowed environments
 const allowedEnvs = ['dev', 'dist', 'test', 'localhost']
 
@@ -25,7 +24,6 @@ if (env === 'dist') {
 else {
   console.log('no, perhaps not.  sadness.')
 }
-console.log('here in webpack.config, process.env.NODE_ENV should be dist ==>', process.env.NODE_ENV)
 
 /**
  * Build the webpack configuration

@@ -2,9 +2,6 @@ const express = require('express')
 const path = require('path')
 const app = express()
 
-console.log('here in app, process.env.NODE_ENV should be dist ==>', process.env.NODE_ENV)
-
-
 if (process.env.NODE_ENV !== 'dist') {
   const webpackDevMiddleware = require('webpack-dev-middleware')
   const webpackHotMiddleware = require('webpack-hot-middleware')
