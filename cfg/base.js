@@ -30,7 +30,7 @@ const config = {
   },
   devtool: 'eval',
   output: {
-    path: path.resolve(siaRoot, 'dist', 'assets'),
+    path: path.join(__dirname, '..', 'dist', 'assets'),
     filename: '[name].js',
     publicPath: publicPath
   },
