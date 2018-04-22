@@ -8,15 +8,13 @@ console.log('hello from dist.js')
 
 const config = Object.assign({}, baseConfig, {
   mode: 'production',
+  context: siaRoot,
   cache: false,
   devtool: 'sourcemap',
   resolve: {
     modules: [
       siaRoot,
       path.resolve(siaRoot, 'src'),
-      path.resolve(siaRoot, 'cfg'),
-      path.resolve(siaRoot, 'dist'),
-      path.resolve(siaRoot, 'test'),
       path.resolve(siaRoot, 'node_modules')
     ]
   //   alias: {
@@ -48,7 +46,6 @@ config.plugins.push(...[
   new webpack.optimize.AggressiveMergingPlugin()
 ])
 
-console.log('dist.js config ==> ', config)
 console.log('dist.js config.entry ==> ', config.entry)
 console.log('dist.js config.output ==> ', config.output)
 module.exports = config
