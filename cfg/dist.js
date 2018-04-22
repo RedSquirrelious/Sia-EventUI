@@ -41,7 +41,7 @@ const config = Object.assign({}, baseConfig, {
   }
 })
 
-config.entry.app.push(path.resolve(siaRoot, 'src', 'index'))
+config.entry.app.push(path.resolve(siaRoot, 'src', 'index.js'))
 config.plugins.push(...[
   new webpack.optimize.AggressiveMergingPlugin()
 ])
