@@ -49,13 +49,13 @@ const config = {
       {
         test: /\.(js|jsx)$/,
         loader: 'babel-loader',
-        include: [
-          siaRoot,
-          path.resolve(siaRoot, 'src'),
-          path.resolve(siaRoot, 'cfg'),
-          path.resolve(siaRoot, 'dist'),
-          path.resolve(siaRoot, 'test')
-        ],
+        // include: [
+        //   siaRoot,
+        //   path.resolve(siaRoot, 'src'),
+        //   path.resolve(siaRoot, 'cfg'),
+        //   path.resolve(siaRoot, 'dist'),
+        //   path.resolve(siaRoot, 'test')
+        // ],
         exclude: /node_modules/
       },
       {
