@@ -9,8 +9,6 @@ import MainComponent from 'components/MainComponent'
 
 require('styles/App.css')
 
-console.log('hello from index.js')
-
 const mainComponentPath = path.resolve('components', 'MainComponent')
 
 injectTapEventPlugin()

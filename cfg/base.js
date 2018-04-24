@@ -3,7 +3,6 @@ const webpack = require('webpack')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const env = process.env.REACT_WEBPACK_ENV
-console.log('hello from base.js')
 
 let constants
 try {
@@ -20,7 +19,7 @@ try {
 const siaRoot = path.resolve(__dirname, '..')
 
 const publicPath = '/assets/'
-console.log('base.js siaRoot ==> ', siaRoot)
+
 const config = {
   context: siaRoot,
   mode: 'development',
@@ -49,13 +48,6 @@ const config = {
       {
         test: /\.(js|jsx)$/,
         loader: 'babel-loader',
-        // include: [
-        //   siaRoot,
-        //   path.resolve(siaRoot, 'src'),
-        //   path.resolve(siaRoot, 'cfg'),
-        //   path.resolve(siaRoot, 'dist'),
-        //   path.resolve(siaRoot, 'test')
-        // ],
         exclude: /node_modules/
       },
       {

@@ -2,13 +2,10 @@ const path = require('path')
 const webpack = require('webpack')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
-const baseConfig = require('./base')
 const siaRoot = path.resolve(__dirname, '..')
-console.log('hello from dist.js')
 
 const config = Object.assign({}, baseConfig, {
   mode: 'production',
-  // context: siaRoot,
   cache: false,
   devtool: 'sourcemap',
   resolve: {
@@ -46,6 +43,4 @@ config.plugins.push(...[
   new webpack.optimize.AggressiveMergingPlugin()
 ])
 
-console.log('dist.js config.entry ==> ', config.entry)
-console.log('dist.js config.output ==> ', config.output)
 module.exports = config
