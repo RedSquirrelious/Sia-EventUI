@@ -16,24 +16,24 @@ const config = Object.assign({}, baseConfig, {
     modules: [
       path.resolve(siaRoot, 'node_modules')
     ],
-    alias: {
-      src: path.resolve(path.join(siaRoot, 'src')),
-      actions: path.resolve(path.join(siaRoot, 'src', 'actions')),
-      components: path.resolve(path.join(siaRoot, 'src', 'components')),
-      config: path.resolve(path.join(siaRoot, 'src', 'config')),
-      containers: path.resolve(path.join(siaRoot, 'src', 'containers')),
-      extensionHooks: path.resolve(path.join(siaRoot, 'src', 'extensionHooks')),
-      helpers: path.resolve(path.join(siaRoot, 'src', 'helpers')),
-      reducers: path.resolve(path.join(siaRoot, 'src', 'reducers')),
-      services: path.resolve(path.join(siaRoot, 'src', 'services')),
-      static: path.resolve(path.join(siaRoot, 'src', 'static')),
-      styles: path.resolve(path.join(siaRoot, 'src', 'styles')),
-      configureStore: path.resolve(path.join(siaRoot, 'src', 'configureStore'))
-    }
-  },
+  //   alias: {
+  //     src: path.join(siaRoot, 'src'),
+  //     actions: path.join(siaRoot, 'src', 'actions'),
+  //     components: path.join(siaRoot, 'src', 'components'),
+  //     config: path.join(siaRoot, 'src', 'config'),
+  //     containers: path.join(siaRoot, 'src', 'containers'),
+  //     extensionHooks: path.join(siaRoot, 'src', 'extensionHooks'),
+  //     helpers: path.join(siaRoot, 'src', 'helpers'),
+  //     reducers: path.join(siaRoot, 'src', 'reducers'),
+  //     services: path.join(siaRoot, 'src', 'services'),
+  //     static: path.join(siaRoot, 'src', 'static'),
+  //     styles: path.join(siaRoot, 'src', 'styles'),
+  //     configureStore: path.join(siaRoot, 'src', 'configureStore')
+  //   }
+  // },
   resolveLoader: {
     modules: [
-      path.resolve(path.join(siaRoot, 'node_modules'))
+      path.join(siaRoot, 'node_modules')
     ]
   }
 })
