@@ -31,7 +31,7 @@ if (module.hot) {
     render(MainComponent, store, persistor)
   })
   // Enable Webpack hot module replacement for reducers
-  module.hot.accept('./reducers/index.js', () => {
+  module.hot.accept('./reducers', () => {
     const nextReducer = require('./reducers/index').default
     store.replaceReducer(nextReducer)
   })
